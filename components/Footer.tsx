@@ -4,10 +4,12 @@ import React from 'react'
 import Image from 'next/image'
 import { FaFacebook } from 'react-icons/fa'
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface RouteProps {
     path: string;
 }   
+
 
 export default function Footer() {
      const handleClick = (path: string) => {
@@ -38,7 +40,7 @@ export default function Footer() {
                 <p className='text-sm pr-10'>Promotions</p>
                 <p className='text-sm pr-10'>Reservation</p>
                 <p className='text-sm pr-10'>Register</p>
-                <p className='text-sm pr-10' onClick={() => handleClick('Contact')}>Contact Us</p>
+                <Link className='text-sm pr-10 hover:underline' href="/Contact">Contact Us</Link>
             </div>
         </div>
         <div className='flex flex-row items-start justify-center'>

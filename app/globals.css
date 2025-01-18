@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .swiper-pagination-bullet {
+  width: 40px !important;
+  height: 4px !important;
+  border-radius: 0 !important;
+  background-color: #ccc !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff8742 !important;
+} */
+
 
 .Link{
   margin-right: 20px;
 }
 
+.CategoryButton{
+  border-radius: 0px;
+  width: 128px;
+  height: 100%;
+}
 
+Button.CategoryButton:hover{
+  background-color: black;
+  color: white;
+}
 
 @layer base {
   :root {
