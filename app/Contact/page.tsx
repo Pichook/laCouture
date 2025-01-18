@@ -13,15 +13,8 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Calendar } from '@/components/ui/calendar'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { format } from "date-fns"
-import { cn } from "@/lib/utils"
-import { CalendarIcon } from 'lucide-react'
+
+
 
 const formSchema = z.object({
   firstname: z.string().min(2).max(50),
@@ -133,36 +126,11 @@ export default function page() {
                 name="date"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mr-3">Appointment Date</FormLabel>
-                    <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant={"outline"}
-                          className={cn(
-                            "w-[240px] pl-3 text-left font-normal",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, "PPP")
-                          ) : (
-                            <span>Pick a date</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        initialFocus
-                        fromDate={new Date()}
-                      />
-                    </PopoverContent>
-                  </Popover>
+                    <FormLabel>Appointment Date</FormLabel>
+                    <FormControl>
+                      <Input type="date" {...field} value={field.value.toISOString().split('T')[0]} />
+                    </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -200,36 +168,11 @@ export default function page() {
                 name="weddingdate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="mr-3">When is your wedding?</FormLabel>
-                    <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant={"outline"}
-                          className={cn(
-                            "w-[240px] pl-3 text-left font-normal",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, "PPP")
-                          ) : (
-                            <span>Pick a date</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        initialFocus
-                        fromDate={new Date()}
-                      />
-                    </PopoverContent>
-                  </Popover>
+                    <FormLabel>When is your wedding?</FormLabel>
+                    <FormControl>
+                      <Input type="date"  {...field} value={field.value.toISOString().split('T')[0]} />
+                    </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
